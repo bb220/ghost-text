@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ghost-text",
+  "title": "GhostText",
+  "description": "Scramble text effect inspired by Ghost in the Shell.",
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "registry/ghost-text/ghost-text.tsx",
+      "content": "\"use client\"\n\nimport { useEffect, useState, useRef } from \"react\"\n\ninterface GhostTextProps {\n  text: string\n  className?: string\n  startDelay?: number\n  scrambleDuration?: number\n  scrambleWindowSize?: number\n  onComplete?: () => void\n}\n\nconst GLITCH_CHARS = \"~!@#$%^&*()_+-=[]{}|;:,.<>?/\\\\ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789\"\n\nexport function GhostText({\n  text,\n  className = \"\",\n  startDelay = 0,\n  scrambleDuration = 3000,\n  scrambleWindowSize = 8,\n  onComplete,\n}: GhostTextProps) {\n  const [displayText, setDisplayText] = useState(\"\")\n  const intervalRef = useRef<NodeJS.Timeout | null>(null)\n  const prefersReducedMotion = useRef(false)\n\n  useEffect(() => {\n    // Start animation after delay\n    const startTimeout = setTimeout(() => {\n      startScramble()\n    }, startDelay)\n\n    return () => {\n      clearTimeout(startTimeout)\n      if (intervalRef.current) {\n        clearInterval(intervalRef.current)\n      }\n    }\n  }, [text, startDelay, scrambleDuration, scrambleWindowSize])\n\n  const startScramble = () => {\n    const chars = text.split(\"\")\n    const totalChars = chars.length\n    const frameTime = 30 // ms per frame \n    const charsPerSecond = totalChars / (scrambleDuration / 1000)\n    const framesPerChar = (1000 / frameTime) / charsPerSecond\n\n    let currentPosition = 0\n    let frameCount = 0\n\n    intervalRef.current = setInterval(() => {\n      frameCount++\n\n      // Calculate how many characters should be revealed based on time elapsed\n      const revealedCount = Math.floor(frameCount / framesPerChar)\n      currentPosition = Math.min(revealedCount, totalChars)\n\n      // Build display text: revealed chars + scramble window\n      let result = \"\"\n\n      for (let i = 0; i < totalChars; i++) {\n        if (i < currentPosition) {\n          // Character is revealed - show actual character\n          result += chars[i]\n        } else if (i < currentPosition + scrambleWindowSize) {\n          // Within scramble window - show random glitch character\n          if (chars[i] === \" \") {\n            result += \" \"\n          } else {\n            result += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]\n          }\n        } else {\n          // Beyond window - don't show yet\n          break\n        }\n      }\n\n      setDisplayText(result)\n\n      // Check if animation is complete\n      if (currentPosition >= totalChars) {\n        if (intervalRef.current) {\n          clearInterval(intervalRef.current)\n        }\n        setDisplayText(text)\n        onComplete?.()\n      }\n    }, frameTime)\n  }\n\n  return (\n    <span className={className} suppressHydrationWarning>\n      {displayText}\n    </span>\n  )\n}\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,5 +1,4 @@
-import { Button } from "@/registry/new-york/ui/button"
-import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 export function OpenInV0Button({
   name,
@@ -9,10 +8,7 @@ export function OpenInV0Button({
     <Button
       aria-label="Open in v0"
       size="sm"
-      className={cn(
-        "shadow-none bg-black text-white hover:bg-black hover:text-white dark:bg-white dark:text-black",
-        className
-      )}
+      variant="outline"
       asChild
     >
       <a
