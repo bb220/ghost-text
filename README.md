@@ -1,8 +1,16 @@
 # GhostText
 
-> [!IMPORTANT]  
-> This template uses Tailwind v4. For Tailwind v3, see [registry-template-v3](https://github.com/shadcn-ui/registry-template-v3).
+Preview: https://ghost-text.brandonbellero.com
 
-## Installation
+### Installation
 
 `npx shadcn@latest add https://ghost-text.brandonbellero.com/r/ghost-text.json`
+
+### Usage
+```tsx
+import { GhostText } from "@/components/ghost-text"
+```
+
+```tsx
+<GhostText text="What's up world" startDelay={250} scrambleDuration={800} scrambleWindowSize={3} />
+```
