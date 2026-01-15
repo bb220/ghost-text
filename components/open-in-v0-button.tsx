@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button"
 
 export function OpenInV0Button({
-  name,
-  className,
+  name
 }: { name: string } & React.ComponentProps<typeof Button>) {
   return (
     <Button

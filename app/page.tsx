@@ -22,7 +22,7 @@ export default function Home() {
             </a>
           </Button>
          
-          <OpenInV0Button name="hello-world" className="w-fit" />
+          <OpenInV0Button name="hello-world"/>
         </div>
         
       </header>
