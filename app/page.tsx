@@ -17,7 +17,7 @@ export default function Home() {
         <div className="flex items-center md:justify-end gap-4 mt-4">
           
           <Button size="sm" variant="default" className="w-fit" asChild>
-            <a href="https://github.com/bb220/ghost-text" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/bb220/ghost-text?tab=readme-ov-file#ghosttext" target="_blank" rel="noopener noreferrer">
               <SiGithub size={24} /> Github
             </a>
           </Button>
