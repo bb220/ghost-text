@@ -35,23 +35,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <h3 className="text-xl font-bold mb-4">Installation</h3>
-      <pre>
-        <code>
-          npx shadcn@latest add https://ghost-text.brandonbellero.com/r/ghost-text.json
-        </code>
-      </pre>
-      <h3 className="text-xl font-bold mb-4">Usage</h3>
-      <pre>
-        <code>
-          import  &#123; GhostText &#125; from "@/components/ghost-text"
-        </code>
-      </pre>  
-      <pre>
-        <code>
-          &lt;GhostText text="What's up world" startDelay={250} scrambleDuration={800} scrambleWindowSize={3} /&gt;
-        </code>
-      </pre> 
     </div>
   )
 }
