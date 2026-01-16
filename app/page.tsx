@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         
       </header>
-      <main className="flex flex-col flex-1 gap-8">
+      <main className="flex flex-col gap-8">
         <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[150px] relative">
           <div className="flex items-center justify-between">
           </div>
@@ -35,6 +35,23 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <h3 className="text-xl font-bold mb-4">Installation</h3>
+      <pre>
+        <code>
+          npx shadcn@latest add https://ghost-text.brandonbellero.com/r/ghost-text.json
+        </code>
+      </pre>
+      <h3 className="text-xl font-bold mb-4">Usage</h3>
+      <pre>
+        <code>
+          import  &#123; GhostText &#125; from "@/components/ghost-text"
+        </code>
+      </pre>  
+      <pre>
+        <code>
+          &lt;GhostText text="What's up world" startDelay={250} scrambleDuration={800} scrambleWindowSize={3} /&gt;
+        </code>
+      </pre> 
     </div>
   )
 }
