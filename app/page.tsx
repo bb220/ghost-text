@@ -17,20 +17,20 @@ export default function Home() {
         <div className="flex items-center md:justify-end gap-4 mt-4">
           
           <Button size="sm" variant="default" className="w-fit" asChild>
-            <a href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/bb220/ghost-text" target="_blank" rel="noopener noreferrer">
               <SiGithub size={24} /> Github
             </a>
           </Button>
          
-          <OpenInV0Button name="hello-world"/>
+          <OpenInV0Button name="ghost-text"/>
         </div>
         
       </header>
       <main className="flex flex-col flex-1 gap-8">
-        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[450px] relative">
+        <div className="flex flex-col gap-4 border rounded-lg p-4 min-h-[150px] relative">
           <div className="flex items-center justify-between">
           </div>
-          <div className="flex text-3xl items-center justify-center min-h-[400px] relative">
+          <div className="flex text-3xl items-center justify-center min-h-[75px] relative">
             <GhostText text="What is it?" scrambleDuration={800} startDelay={250} scrambleWindowSize={3}/>
           </div>
         </div>
