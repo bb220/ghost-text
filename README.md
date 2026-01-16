@@ -3,8 +3,11 @@
 Preview: https://ghost-text.brandonbellero.com
 
 ### Installation
+Add to your project using [shadcn-cli](https://ui.shadcn.com/docs/installation/next).
 
-`npx shadcn@latest add https://ghost-text.brandonbellero.com/r/ghost-text.json`
+```bash
+npx shadcn@latest add https://ghost-text.brandonbellero.com/r/ghost-text.json
+```
 
 ### Usage
 ```tsx
